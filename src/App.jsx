@@ -1,53 +1,45 @@
 import { createElement} from "react"
 import { useState } from "react";
 
+/**
+Challenge: 
 
-const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
-];
+Part 2: 
+- Add a `<header>` element with an `<img />` element with the image of the 
+  React logo inside (src="react-logo.png") and make sure to set the 
+  width to something more manageable so it doesn't take up the whole screen.
+  Also, as always, you should include some alt text on the image.
+- Add an `<h1>` with some text describing the page. (E.g. "Reasons
+  I'm excited to learn React"). Place it above the ordered list, then wrap
+  the `<h1>` and `<ol>` inside a `<main>` element to keep our semantic
+  structure flowing well.
+- Add a `<footer>` after the list that says: 
+    "© 20xx <last name here> development. All rights reserved."
+ */
 
-
-
-
+function Header(){
+  return <img src="nosource/like/this/one" alt="reat log" width='40px' />
+}
+function Body(){
+  return(
+    <ol>
+      <li>Web development willingness</li>
+      <li>It popular library</li>
+      <li>It's maketable</li>
+    </ol>
+  )
+}
+function Footer(){
+  return <p><small>&copy 2026 Theogene development. All rights resered</small></p>
+}
 
 function App(){
-  let list = products.map( product => 
-    <li id={product.id} style={{color: product.isFruit? "magenta": "darkgreen"}}>
-      {product.title}
-    </li>
-  )
-  const createdElement = createElement('h1', null, 'Hello from createElement method')
-  console.log(createdElement)
-
-  function handleClick(){
-    alert('Thank you for subscribe')
-    setIsSubscribed(true)
-  }
-  
-  const [isSubscribed, setIsSubscribed] = useState(false)
-
-  const [count, setCount] = useState(0)
-  const [counter, setCounter] = useState(0)
-
-
-  return (
-    <>
-      {createdElement}
-      <ul>{list}</ul>
-      <button onClick={handleClick}>Click to subscribe</button>
-      {isSubscribed && (
-        <>
-          <h2>This names added by clicking</h2>
-          <p>Peter</p>
-          <p>John</p>
-          <p>Jemus</p>
-        </>
-      )}
-      <button onClick={() => setCount(count + 1)}>Clicked {count} times</button>
-      <button onClick={() => setCounter(counter + 1)}>Clicked {counter} times</button>
-    </>
+  return(
+  <>
+    <Header />
+    <Body />
+    <Footer />
+  </>
   )
 }
 
