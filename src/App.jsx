@@ -1,5 +1,6 @@
 import { createElement} from "react"
 import { useState } from "react";
+import data from "./data.js"
 // import Header from "./components/Header";
 // import Body from "./components/Body";
 // import Footer from "./components/Footer";
@@ -27,13 +28,13 @@ function Entry(props){
 
     return(
         <div className="flex mx-10 gap-5 my-5">
-            <div className="overflow-hidden">
-                <img className="w-96 h-full rounded-[5px]" src={props.img.src} alt={props.img.alt} />
+            <div className="">
+                <div className="w-40 h-48"><img className="h-full rounded-md" src={props.img.src} alt={props.img.alt} /></div>
             </div>
             <div className="">
                 <p className="text-[13px] font-semibold">{props.country}<span className="ml-4 underline hover:cursor-pointer">View on Google Maps</span></p>
-                <p className="font-bold text-2xl">{props.place}</p>
-                <p className="font-bold my-3">{props.date}</p>
+                <p className="font-bold text-2xl">{props.title}</p>
+                <p className="font-bold my-3">{props.dates}</p>
                 <p className="text-[13px] font-semibold">{props.discriptions}</p>
             </div>
         </div>
@@ -41,21 +42,28 @@ function Entry(props){
 }
 
 function App() {
+    const result = data.map((obj, index) =>{
+        return(
+            
+                <Entry 
+                key = {index}
+                img = {{
+                    src : obj.img.src,
+                    alt : obj.img.alt
+                }}
+                country = {obj.country}
+                title = {obj.title}
+                dates = {obj.dates}
+                discriptions = {obj.text}
+                />
+        )
+    })
+
   return (
     <>
-        <Header />
-        <Entry 
-            img = {{
-                src: "https://scrimba.com/links/travel-journal-japan-image-url",
-                alt: "Mount Fuji"
-            }}
-            country = 'JAPAN'
-            place = 'Mount Fuji'
-            date = "12 Jan, 2021 - 24 Jan, 2021"
-            discriptions = "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists."
-        />
+    <Header />
+    {result}
     </>
-    
   )
 }
 export default App
