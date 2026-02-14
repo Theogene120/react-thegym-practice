@@ -1,5 +1,5 @@
 
-
+import React from 'react'
 
 function Header() {
   return(
@@ -11,7 +11,7 @@ function Header() {
 }
 
 function Main() {
-    const ingredients = ["Chicken", "Oregano", "Tomatoes"]
+    const [ingredients, setIngredients] = React.useState([])
     
     const list = ingredients.map(ingredient => (
         <li key={ingredient}>{ingredient}</li>
@@ -22,9 +22,8 @@ function Main() {
         console.log("Form submitted")
         const formData = new FormData(e.currentTarget)
         const newIngredients = formData.get('ingredient') // We pass form name as string
-        ingredients.push(newIngredients)
-        console.log(ingredients)
-        
+
+        setIngredients(prevIngredients => [...prevIngredients, newIngredients])
     }
     return (
         <>
