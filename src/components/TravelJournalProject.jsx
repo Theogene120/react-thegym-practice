@@ -1,6 +1,6 @@
 import { createElement} from "react"
 import { useState } from "react";
-import data from "./data.js"
+import data from "../data.js"
 
 
 function Header() {

@@ -19,7 +19,7 @@ function Main() {
 
     function handleSubmision(e) {
         e.preventDefault()
-        console.log("Form submitted")
+        console.log("Form submitted") // for checking
         const formData = new FormData(e.currentTarget)
         const newIngredients = formData.get('ingredient') // We pass form name as string
 
