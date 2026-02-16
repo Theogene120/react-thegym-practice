@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import Profile from './components/UpdateObject.jsx'
+//import App from './App.jsx'
+import FormSkills from './FormSkills.jsx'
 import './index.css'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App  />
+    <FormSkills  />
   </StrictMode>,
 )
