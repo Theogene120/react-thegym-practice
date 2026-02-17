@@ -29,7 +29,17 @@ function Main() {
                 <input  className="border-2 border-gray-300 rounded-md w-80 outline-none pl-3" placeholder="e.g. oregano" type="text" name="ingredient" id="1" />
                 <button  className="bg-[#141413] text-white px-6 rounded-md h-8 text-sm font-semibold text-opacity-90">+ Add ingredient</button>
             </form>
+            {ingredients.length == 0? '' : (<p className='font-bold text-2xl ml-10 pb-4'> Ingredients on hands: </p>)}
             <ul className="list-disc ml-20">{list}</ul>
+            {ingredients.length == 0? '' : (
+            <div className='flex justify-between items-center bg-gray-200 mt-10 m-6 py-4 px-8 rounded-lg'>
+                <div>
+                    <p className='font-bold'>Ready for a recipe?</p>
+                    <p className='text-sm font-semibold opacity-50'>Generate the recipe from your list of ingredient</p>
+                </div>
+                <button className='bg-[#D17557] px-4 text-white font-bold text-sm rounded-lg h-9'>Get a recipe</button>
+            </div>
+        )}
         </>
     )
 }
