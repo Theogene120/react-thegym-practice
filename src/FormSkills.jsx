@@ -2,10 +2,8 @@
 export default function FormSkills() {
   
   function signUp(formData) {
-    let email = formData.get('email')
-    let password = formData.get('password')
-    console.log(email)
-    console.log(password)
+    let data = Object.fromEntries(formData)
+    console.log(data)
   }
   
   return (
