@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function Conditional() {
-    const [messages, setMessages] = React.useState(["a", "b"])
+    const [messages, setMessages] = React.useState(["a", 'b', "c"])
     /**
      * Challenge:
      * - If there are no unread messages, display "You're all caught up!"
@@ -11,19 +11,20 @@ export default function Conditional() {
      *   messages" (plural)
      */
     function checkArr(){
-        
-        if(messages.length == 0){
-            return <h1>You're all caught up!</h1>
-        }else if(messages.lenght > 1){
-            return <h1>You have {messages.length} messages</h1>
+        let dis
+        if(messages.length > 1){
+            dis = <h1>You have {messages.length} messages</h1>
+        }else if(messages.length == 1){
+            dis = <h1>You have 1 unread message</h1>
         }else{
-            return <h1>You have 1 unread message</h1>
+            dis = <h1>You're all caught up!</h1>
         }
+        return dis
         
     }
     return (
         <div>
-            checkArr()
+            {checkArr()}
         </div>
     )
 }
