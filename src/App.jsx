@@ -1,5 +1,6 @@
 
 import React from 'react'
+import ButtonSeries from './components/ButtonSeries'
 
 function Header() {
   return(
@@ -85,10 +86,12 @@ function App() {
     
     return (
         <>
-            <Header />
-            <Main />
+            {/* <Header />
+            <Main /> */}
+
+            <ButtonSeries />
+
         </>
-    
 )
 }
 
