@@ -57,7 +57,7 @@ function Main() {
                 <li>3 cloves garlic, minced</li>
                 <li>2 tablespoons tomato paste</li>
                 <li>1 (28 oz) can crushed tomatoes</li>
-                <li>1 cup beef broth</li>
+                {/* <li>1 cup beef broth</li> */}
                 <li>1 teaspoon dried oregano</li>
                 <li>1 teaspoon dried basil</li>
                 <li>Salt and pepper to taste</li>
