@@ -19,18 +19,18 @@ function Pad(props){
 )
 }
 
-// export default function ButtonSeries(props) {
+export default function ButtonSeries(props) {
 
     
    
-//     let [button, setButton] = React.useState(pads)
+    let [button, setButton] = React.useState(pads)
     
-//     let btn = button.map(b => <Pad key={b.id} color={b.color} on={b.on}/> )
-//     return (
-//         <main>
-//             <div className="pad-container">
-//                 {btn}
-//             </div>
-//         </main>
-//     )
-// }
+    let btn = button.map(b => <Pad key={b.id} color={b.color} on={b.on}/> )
+    return (
+        <main>
+            <div className="pad-container">
+                {btn}
+            </div>
+        </main>
+    )
+}
