@@ -3,7 +3,7 @@ import pads from "./pads"
 
 function Pad(props){
 
-    let [isOn, setIsOn] = React.useState(false)
+    let [isOn, setIsOn] = React.useState(props.on)
 
     function handler(){
         setIsOn(prev => !prev)
@@ -14,7 +14,7 @@ function Pad(props){
     <button 
         onClick={handler}
         style={{backgroundColor: props.color}}
-        className={`py-9 px-10 my-5 mx-8  rounded-md ${props.on ? 'opacity-100': 'opacity-30'}`}>
+        className={`py-9 px-10 my-5 mx-8  rounded-md ${isOn ? 'opacity-100': 'opacity-30'}`}>
     </button>
 )
 }
