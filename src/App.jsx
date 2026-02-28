@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React from "react"
 
 import trollFace from "/troll-face.png"
 function Header() {
@@ -14,11 +14,14 @@ function Header() {
 
 
 function Main() {
-    const [meme, setMeme] = useState({
+    const [meme, setMeme] = React.useState({
         topText: 'One does not simply',
         bottomText: 'Walk into Mordor',
         imageUrl: "http://i.imgflip.com/1bij.jpg"
     })
+
+    const [memeUrls, setMemeUrls] = React.useState([])
+    const [count, setCount] = React.useState(0)
 
     function handlerChange(e){
         const {value, name} = e.currentTarget
@@ -26,6 +29,20 @@ function Main() {
             return {...prev, [name]: value}
         })
     }
+
+    React.useEffect(() => {
+        fetch('https://api.imgflip.com/get_memes')
+            .then(res => res.json())
+            .then(meme => {
+                console.log(meme.data.memes)
+                setMemeUrls(meme.data.memes)
+            })
+    }, [])
+
+    // function handlerClick(){
+    //     setCount(count+1)
+    //     setMeme(prev => ({...prev, imageUrl: memeUrls}))
+    // }
 
     return (
         <main>
@@ -51,7 +68,7 @@ function Main() {
                         />
                     </label>
                 </div>
-                <button className=" mr-20 w-[555px] mx-10 mb-6 py-2 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-[#682281] to-[#A526D1]">Get a new meme image 🖼</button>
+                <button  className=" mr-20 w-[555px] mx-10 mb-6 py-2 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-[#682281] to-[#A526D1]">Get a new meme image 🖼</button>
             </div>
             <div className="flex flex-col items-center">
                 <img className="rounded-lg" src={meme. imageUrl} />
