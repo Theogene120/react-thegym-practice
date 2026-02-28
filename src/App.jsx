@@ -1,3 +1,4 @@
+import { useState } from "react"
 
 import trollFace from "/troll-face.png"
 function Header() {
@@ -13,6 +14,19 @@ function Header() {
 
 
 function Main() {
+    const [meme, setMeme] = useState({
+        topText: 'One does not simply',
+        bottomText: 'Walk into Mordor',
+        imageUrl: "http://i.imgflip.com/1bij.jpg"
+    })
+
+    function handlerChange(e){
+        const {value, name} = e.currentTarget
+        setMeme(prev => {
+            return {...prev, [name]: value}
+        })
+    }
+
     return (
         <main>
             <div className="">
@@ -23,6 +37,7 @@ function Main() {
                             type="text"
                             placeholder="One does not simply"
                             name="topText"
+                            onChange={handlerChange}
                         />
                     </label>
 
@@ -32,15 +47,16 @@ function Main() {
                             type="text"
                             placeholder="Walk into Mordor"
                             name="bottomText"
+                            onChange={handlerChange}
                         />
                     </label>
                 </div>
                 <button className=" mr-20 w-[555px] mx-10 mb-6 py-2 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-[#682281] to-[#A526D1]">Get a new meme image 🖼</button>
             </div>
             <div className="flex flex-col items-center">
-                <img className="rounded-lg" src="http://i.imgflip.com/1bij.jpg" />
-                <span className="-mt-80 text-4xl font-extrabold text-white">One does not simply</span>
-                <span className="mt-52 mb-20 text-4xl font-extrabold text-white">Walk into Mordor</span>
+                <img className="rounded-lg" src={meme. imageUrl} />
+                <span className="-mt-80 text-4xl font-extrabold text-white">{meme.topText}</span>
+                <span className="mt-52 mb-20 text-4xl font-extrabold text-white">{meme.bottomText}</span>
             </div>
         </main>
     )
