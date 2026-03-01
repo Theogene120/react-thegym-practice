@@ -34,15 +34,20 @@ function Main() {
         fetch('https://api.imgflip.com/get_memes')
             .then(res => res.json())
             .then(meme => {
-                console.log(meme.data.memes)
-                setMemeUrls(meme.data.memes)
+                
+                let arr = []
+                for (let obj of meme.data.memes){
+                    arr.push(obj.url)
+                }
+                setMemeUrls(arr)
             })
+            
     }, [])
 
-    // function handlerClick(){
-    //     setCount(count+1)
-    //     setMeme(prev => ({...prev, imageUrl: memeUrls}))
-    // }
+    function handlerClick(){
+        let idx = Math.floor(Math.random() * memeUrls.length)
+        setMeme(prev => ({...prev, imageUrl: memeUrls[idx]}))
+    }
 
     return (
         <main>
@@ -68,12 +73,12 @@ function Main() {
                         />
                     </label>
                 </div>
-                <button  className=" mr-20 w-[555px] mx-10 mb-6 py-2 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-[#682281] to-[#A526D1]">Get a new meme image 🖼</button>
+                <button onClick={handlerClick}  className=" mr-20 w-[555px] mx-10 mb-6 py-2 rounded-md text-white text-sm font-semibold bg-gradient-to-r from-[#682281] to-[#A526D1]">Get a new meme image 🖼</button>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="relative flex justify-center my-6 items-center">
                 <img className="rounded-lg" src={meme. imageUrl} />
-                <span className="-mt-80 text-4xl font-extrabold text-white">{meme.topText}</span>
-                <span className="mt-52 mb-20 text-4xl font-extrabold text-white">{meme.bottomText}</span>
+                <span className="absolute top-4 text-4xl font-extrabold text-white">{meme.topText}</span>
+                <span className="absolute bottom-0 mb-20 text-4xl font-extrabold text-white">{meme.bottomText}</span>
             </div>
         </main>
     )
