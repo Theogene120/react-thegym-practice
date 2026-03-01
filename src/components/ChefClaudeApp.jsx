@@ -162,17 +162,17 @@ function Main() {
   );
 }
 
-// function ChefClaudeApp() {
-//   return (
-//     <>
-//       <Header />
-//       <Main />
+function ChefClaudeApp() {
+  return (
+    <>
+      <Header />
+      <Main />
 
-//       {/* <ButtonSeries darkMode = {false}/> */}
-//     </>
-//   );
-// }
+      {/* <ButtonSeries darkMode = {false}/> */}
+    </>
+  );
+}
 
-// export default ChefClaudeApp;
+export default ChefClaudeApp;
 
-// // My haggingface key : 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
+// My haggingface key : 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
