@@ -89,7 +89,7 @@ function IngredientList(props) {
       {props.ingredients.length <= 3 ? (
         ""
       ) : (
-        <div className="flex justify-between items-center bg-gray-200 mt-10 m-6 py-4 px-8 rounded-lg">
+        <div className="flex justify-between items-center bg-gray-200 mt-10 m-6 py-4 px-8 rounded-lg" ref={props.ref}>
           <div>
             <p className="font-bold">Ready for a recipe?</p>
             <p className="text-sm font-semibold opacity-50">
@@ -109,8 +109,9 @@ function IngredientList(props) {
 }
 
 function Main() {
-  const [ingredients, setIngredients] = React.useState([]);
+  const [ingredients, setIngredients] = React.useState(['Mango', 'Banana', 'Sugar', 'Pineapple', 'Water','Avocado']);
   const [recipeShown, setRecipeShown] = React.useState(false);
+  const refRecipe = React.useRef(null)
 
   const list = ingredients.map((ingredient) => (
     <li key={ingredient}>{ingredient}</li>
@@ -126,6 +127,12 @@ function Main() {
   function showRecipe() {
     setRecipeShown((prev) => !prev);
   }
+
+  React.useEffect(() => {
+    if(refRecipe.current !== null){
+      refRecipe.current.scrollIntoView({behavior: 'smooth'})
+    }
+  }, [showRecipe])
   return (
     <>
       <form
@@ -145,6 +152,7 @@ function Main() {
       </form>
 
       <IngredientList
+        ref={refRecipe}
         ingredients={ingredients}
         list={list}
         showRecipe={showRecipe}
@@ -154,17 +162,17 @@ function Main() {
   );
 }
 
-function ChefClaudeApp() {
-  return (
-    <>
-      <Header />
-      <Main />
+// function ChefClaudeApp() {
+//   return (
+//     <>
+//       <Header />
+//       <Main />
 
-      {/* <ButtonSeries darkMode = {false}/> */}
-    </>
-  );
-}
+//       {/* <ButtonSeries darkMode = {false}/> */}
+//     </>
+//   );
+// }
 
-export default ChefClaudeApp;
+// export default ChefClaudeApp;
 
-// My haggingface key : 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
+// // My haggingface key : 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
