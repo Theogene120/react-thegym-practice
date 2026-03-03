@@ -1,28 +1,34 @@
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
-import { createPortal } from "react-dom"
-import { Suspense, lazy } from "react"
 
-const MemeGenerator = lazy(() => import('./components/MemeGenerator'))
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Page</h1>;
+}
 
 function App(){
+    return(
+        <BrowserRouter>
+            <nav>
+                <Link to="/">Home</Link>| {"  "}
+                <Link to="/about">About</Link>| {"  "}
+                <Link to="/contact">Contact</Link>
+            </nav>  
 
-    function greeting(){
-        return new Promise(resolve =>{
-            setTimeout(() => {
-                resolve('Hey, nice to meet you')
-            }, 3000)
-        })
-    }
-
-    return createPortal(
-        <div>
-            <Suspense fallback={<div>Wait a moment........</div>}>
-                <MemeGenerator />
-                {greeting().then(res => <p>{res}</p>)}
-            </Suspense>
-        </div>, 
-        document.body
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
-export default App
+export default App;
