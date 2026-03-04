@@ -1,4 +1,5 @@
 import { BrowserRouter, Link, Route, Routes, Outlet } from 'react-router-dom'
+import React from 'react';
 
 
 function Home() {
@@ -52,26 +53,50 @@ function Bikes(){
   );
 }
 
+function Transtion(){
+    const [text, setText] = React.useState('')
+    const [result, setResult] = React.useState('')
+    const [isPending, startTransaction] = React.useTransition()
+
+    const handlerChanges = (e) => {
+        setText(e.target.value)
+        startTransaction(() =>{
+            setResult(e.target.value)
+        })
+    }
+
+    return(
+        <div className='m-6'>
+            <input className='outline-none border-2 border-black rounded-md pl-2' value={text} onChange={handlerChanges} />
+            {isPending ? (<p>Loading..........</p>) : (<p>Search result for: {result}</p>)}
+        </div>
+    )
+}
+
+
 function App(){
     return(
-        <BrowserRouter>
-            <nav className='m-3'>
-                <Link to="/">Home</Link>{"  "}| {"  "}
-                <Link to="/about">About</Link>{' '}| {"  "}
-                <Link to="/contact">Contact</Link>{'  '}| {'  '}
-                <Link to="/products">Products</Link>
-            </nav>  
+        <>
+            <BrowserRouter>
+                <nav className='m-3'>
+                    <Link to="/">Home</Link>{"  "}| {"  "}
+                    <Link to="/about">About</Link>{' '}| {"  "}
+                    <Link to="/contact">Contact</Link>{'  '}| {'  '}
+                    <Link to="/products">Products</Link>
+                </nav>  
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path='/products' element={<Products />}>
-                    <Route path='/products/car' element={<Cars />}/>
-                    <Route path='/products/bike' element={<Bikes />}/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path='/products' element={<Products />}>
+                        <Route path='/products/car' element={<Cars />}/>
+                        <Route path='/products/bike' element={<Bikes />}/>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+            <Transtion />
+        </>
     )
 }
 
