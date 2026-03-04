@@ -52,27 +52,27 @@ function Bikes(){
   );
 }
 
-// function App(){
-//     return(
-//         <BrowserRouter>
-//             <nav className='m-3'>
-//                 <Link to="/">Home</Link>{"  "}| {"  "}
-//                 <Link to="/about">About</Link>{' '}| {"  "}
-//                 <Link to="/contact">Contact</Link>{'  '}| {'  '}
-//                 <Link to="/products">Products</Link>
-//             </nav>  
+function App(){
+    return(
+        <BrowserRouter>
+            <nav className='m-3'>
+                <Link to="/">Home</Link>{"  "}| {"  "}
+                <Link to="/about">About</Link>{' '}| {"  "}
+                <Link to="/contact">Contact</Link>{'  '}| {'  '}
+                <Link to="/products">Products</Link>
+            </nav>  
 
-//             <Routes>
-//                 <Route path="/" element={<Home />} />
-//                 <Route path="/about" element={<About />} />
-//                 <Route path="/contact" element={<Contact />} />
-//                 <Route path='/products' element={<Products />}>
-//                     <Route path='/products/car' element={<Cars />}/>
-//                     <Route path='/products/bike' element={<Bikes />}/>
-//                 </Route>
-//             </Routes>
-//         </BrowserRouter>
-//     )
-// }
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path='/products' element={<Products />}>
+                    <Route path='/products/car' element={<Cars />}/>
+                    <Route path='/products/bike' element={<Bikes />}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    )
+}
 
-// export default App;
+export default App;
