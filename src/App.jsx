@@ -53,6 +53,8 @@ function Bikes(){
   );
 }
 
+// Transtion stuff
+
 function Transtion(){
     const [text, setText] = React.useState('')
     const [result, setResult] = React.useState('')
@@ -72,6 +74,24 @@ function Transtion(){
         </div>
     )
 }
+
+// HOC codes goes here
+
+function withBorder(WrappedComponent){
+    return function NewComponent(props){
+        return(
+            <div className='border-2 border-blue-500 p-2'>
+                <WrappedComponent {...props} />
+            </div>
+        )
+    }
+}
+
+function Greeting(props){
+    return(<p>Hello, {props.name}</p>)
+}
+
+const GreetingWithBorder = withBorder(Greeting)
 
 
 function App(){
@@ -96,6 +116,10 @@ function App(){
                 </Routes>
             </BrowserRouter>
             <Transtion />
+            <div className='m-10'>
+                <Greeting name='Theogene'/>
+                <GreetingWithBorder name='Cynthia'/>
+            </div>
         </>
     )
 }
