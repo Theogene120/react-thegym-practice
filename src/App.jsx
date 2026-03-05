@@ -2,17 +2,17 @@ import { BrowserRouter, Link, Route, Routes, Outlet } from 'react-router-dom'
 import React from 'react';
 
 
-// function Home() {
-//   return <h1 className='text-2xl font-bold mt-5'>Home Page</h1>;
-// }
+function Home() {
+  return <h1 className='text-2xl font-bold mt-5'>Home Page</h1>;
+}
 
-// function About() {
-//   return <h1 className='text-2xl font-bold mt-5'>About Page</h1>;
-// }
+function About() {
+  return <h1 className='text-2xl font-bold mt-5'>About Page</h1>;
+}gt
 
-// function Contact() {
-//   return <h1 className='text-2xl font-bold mt-5'>Contact Page</h1>;
-// }
+function Contact() {
+  return <h1 className='text-2xl font-bold mt-5'>Contact Page</h1>;
+}
 
 function Products(){
     return(
