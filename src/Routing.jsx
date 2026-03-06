@@ -8,7 +8,7 @@ function Home() {
 
 function About() {
   return <h1 className='text-2xl font-bold mt-5'>About Page</h1>;
-}gt
+}
 
 function Contact() {
   return <h1 className='text-2xl font-bold mt-5'>Contact Page</h1>;
@@ -77,11 +77,11 @@ function Transtion(){
 
 // HOC codes goes here
 
-function withBorder(WrappedComponent){
+function withBorder(WrRoutingedComponent){
     return function NewComponent(props){
         return(
             <div className='border-2 border-blue-500 p-2'>
-                <WrappedComponent {...props} />
+                <WrRoutingedComponent {...props} />
             </div>
         )
     }
@@ -94,7 +94,7 @@ function Greeting(props){
 const GreetingWithBorder = withBorder(Greeting)
 
 
-function App(){
+function Routing(){
     return(
         <>
             <BrowserRouter>
@@ -124,4 +124,4 @@ function App(){
     )
 }
 
-export default App;
+export default Routing;
