@@ -10,6 +10,7 @@ import Fetch from '/src/components/Fetch.jsx'
 //import WindowTracker from "./components/WindowTruck";
 import "./index.css";
 
+import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Todo />
