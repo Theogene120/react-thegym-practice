@@ -25,10 +25,19 @@ function Form(){
         )
     }
 
+    function handleDelete(id){
+        setTodo(prev => prev.filter(item => item.id != id))
+    }
+
     let todos = todo.map(item => (
-        <div >
-            <input id={item.id} type="checkbox" onChange={() => handleCheck(item.id)} name={item.text} value={item.text} />
-            <label htmlFor={item.id}  className={`${item.completed ? "line-through text-gray-700" : " "}`} >{item.text}</label>
+        <div className="flex mt-8  justify-between">
+            <div className="flex gap-2 ml-2">
+                <input id={item.id} type="checkbox" onChange={() => handleCheck(item.id)} name={item.text} value={item.text} className="w-5"/>
+                <label htmlFor={item.id}  className={`${item.completed ? "line-through text-gray-700 text-lg" : "text-lg"}`} >{item.text}</label>
+            </div>
+            <button onClick={() => handleDelete(item.id)}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </button>
         </div>
     ))
 
