@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./Routing";
+
+import Todo from "./Todo";
 import MemeGenerator from "./components/MemeGenerator";
 import ChefClaudeApp from "./components/ChefClaudeApp";
 // import FormSkills from './FormSkills.jsx'
@@ -11,6 +12,6 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <Todo />
   </StrictMode>,
 );
