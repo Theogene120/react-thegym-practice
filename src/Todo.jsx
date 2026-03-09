@@ -7,7 +7,6 @@ function Header() {
 function Form(){
     const [todo, setTodo] = React.useState([])
     const [id, setId] = React.useState(1)
-    const [completeness, setCompleteness] = React.useState()
 
     function handleSubmit(formData){
         let work = formData.get('todo')
