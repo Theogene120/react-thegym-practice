@@ -2,10 +2,13 @@ import React from "react"
 
 function Button(){
     let buttons = ['AC','+/-','%','/','7','8','9','X','4','5','6','-','1','2','3','+','0','.','=']
+    let operators = ['/','X','-','+','AC', '%','=']
     let sign = ['/','X','-','+','=']
 
+
     const [num, setNum] = React.useState(0)
-    const [s, setS] = React.useState([])
+    const [operator, setOperator] = React.useState(null)
+    const [secondNum, setSecondNum] = React.useState(null)
 
     let btns = buttons.map((btn,idx) => 
         <div key={idx} className={`${btn == '0'? 'grid col-span-2' : ''}`}>
@@ -19,23 +22,32 @@ function Button(){
 
         setNum(prev => {
         if(isNaN(value)){
-            setS(pv => [...pv,value])
             return prev
         }else {
             if(prev === 0){
-                setS(pv => [...pv,value])
                 return value
             }else{
                 let newnum = `${prev}${value}`
-                setS(pv => [...pv,value])
                 return Number(newnum)
             }   
         }
         })
 
-        console.log(s)
+        setOperator(() => {
+            if(operators.includes(value))
+                return value
+        })
+
+        setSecondNum(() =>{
+            if(operator != null){
+                return value
+            }
+        })
+        setNum(secondNum)
         
-        
+        if(operator === '+'){
+            setNum(num + secondNum)
+        }
     }
     
     return (

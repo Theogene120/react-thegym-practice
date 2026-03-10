@@ -14,6 +14,6 @@ import "./index.css";
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Todo />
+    <Calculator />
   </StrictMode>,
 );
