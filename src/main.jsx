@@ -5,6 +5,7 @@ import Todo from "./Todo";
 import Calculator from './Calculator'
 import MemeGenerator from "./components/MemeGenerator";
 import ChefClaudeApp from "./components/ChefClaudeApp";
+import Tenzies from "./components/Tenzies";
 // import FormSkills from './FormSkills.jsx'
 //import Conditional from './Conditional'
 import Fetch from '/src/components/Fetch.jsx'
@@ -14,6 +15,6 @@ import "./index.css";
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Calculator />
+    <Tenzies />
   </StrictMode>,
 );
