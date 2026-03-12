@@ -2,7 +2,7 @@ import React from "react"
 
 function Button(){
     let buttons = ['AC','+/-','%','/','7','8','9','X','4','5','6','-','1','2','3','+','0','.','=']
-    let sign = ['/','X','-','+',]
+    let sign = ['/','X','-','+','%']
 
 
     const [num, setNum] = React.useState(0)
@@ -11,7 +11,7 @@ function Button(){
 
     let btns = buttons.map((btn,idx) => 
         <div key={idx} className={`${btn == '0'? 'grid col-span-2' : ''}`}>
-            <button onClick={() => handleClick(btn)} className={`${sign.includes(btn) || btn === "=" ? "bg-[#F38636] text-white text-3xl font-bold": "bg-gray-100 text-3xl font-bold"} w-full py-12 `}>
+            <button onClick={() => handleClick(btn)} className={`${sign.filter(v => v !== '%').includes(btn) || btn === "=" ? "bg-[#F38636] text-white text-3xl font-bold": "bg-gray-100 text-3xl font-bold"} w-full py-12 `}>
                 {btn}
             </button>
         </div>
