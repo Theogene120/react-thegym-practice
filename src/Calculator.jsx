@@ -2,7 +2,6 @@ import React from "react"
 
 function Button(){
     let buttons = ['AC','+/-','%','/','7','8','9','X','4','5','6','-','1','2','3','+','0','.','=']
-    let operators = ['/','X','-','+','AC', '%',]
     let sign = ['/','X','-','+',]
 
 
@@ -19,13 +18,13 @@ function Button(){
     )
 
     function handleClick(value){
-
         if (!isNaN(value)) {
         setNum(prev => {
             if (prev === 0) return Number(value)
             else return Number(`${prev}${value}`)
         })
         }
+        else if(value == '.')  setNum(prev => `${prev}${value}`)
         else if(sign.includes(value)){
             setprevNum(num)
             setOperator(value)
@@ -33,9 +32,20 @@ function Button(){
         }
 
         else if(value === '='){
-            if(operator === '+'){
-                setNum(Number(prevNum) + Number(num))
+            switch(operator){
+                case '+': setNum(Number(prevNum) + Number(num))
+                break
+                case '-': setNum(Number(prevNum) - Number(num))
+                break
+                case 'X': setNum(Number(prevNum) * Number(num))
+                break
+                case '/': setNum(Number(prevNum) / Number(num))
+                break
+                case '%': setNum(Number(prevNum) % Number(num))
+                break
+                default: setNum(0)
             }
+            
         }
         else if(value === 'AC'){
             setNum(0)
@@ -56,7 +66,7 @@ function Button(){
 
 function Calculator(){
     return(
-        <div className="bg-[#7A7B88]">
+        <div className="bg-[#7A7B88] ">
             <Button />
         </div>
         
