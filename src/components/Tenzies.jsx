@@ -27,20 +27,20 @@ function Main(){
     }
 
 
-    return (
-        <div className="bg-[#0B2434] border rounded-lg h-[500px]">
-            <div className="bg-white  h-[85%] rounded-md m-10">
-                <p>Discription</p>
-                <div className="flex justify-center mt-32">
-                    <div className="grid grid-cols-5 gap-4">
-                        {numbers}
-                    </div>
-                </div>
-                <div className="flex justify-center items-center mt-10"><button onClick={handleClick} className="bg-[#5035FF] text-white outline-none py-2 px-10 text-xl font-bold rounded-md shadow-2xl">Roll</button></div>
-            </div>
-        </div>
+    // return (
+    //     <div className="bg-[#0B2434] border rounded-lg h-[500px]">
+    //         <div className="bg-white  h-[85%] rounded-md m-10">
+    //             <p>Discription</p>
+    //             <div className="flex justify-center mt-32">
+    //                 <div className="grid grid-cols-5 gap-4">
+    //                     {numbers}
+    //                 </div>
+    //             </div>
+    //             <div className="flex justify-center items-center mt-10"><button onClick={handleClick} className="bg-[#5035FF] text-white outline-none py-2 px-10 text-xl font-bold rounded-md shadow-2xl">Roll</button></div>
+    //         </div>
+    //     </div>
     
-    )
+    // )
 }
 
 export default function Tenzies(){
