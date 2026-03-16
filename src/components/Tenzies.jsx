@@ -5,6 +5,9 @@ import Die from "./Die"
 function Main(){
 
     const [nums, setNums] = React.useState(randomNumbers())
+    
+    let completed = nums.every(obj => obj.isHeld) && nums.every(die => die.value === nums[0].value)
+    
 
     function randomNumbers() {
         let random = []
@@ -34,17 +37,20 @@ function Main(){
     }
 
 
+
     return (
         <div className="bg-[#0B2434] border rounded-lg h-[600px]">
             <div className="bg-white  h-[85%] rounded-md m-10">
-                <p className="text-center text-4xl pt-10 font-bold">Tenzies</p>
-                <p className="px-20 text-center pt-10 font-semibold opacity-80">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+                {!completed ? (<div>
+                    <p className="text-center text-4xl pt-10 font-bold">Tenzies</p>
+                    <p className="px-20 text-center pt-10 font-semibold opacity-80">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+                </div>) : (<p className="pt-20 text-center text-4xl font-extrabold">Congratulations 🥳🎉🎊</p>)}
                 <div className="flex justify-center mt-24">
                     <div className="grid grid-cols-5 gap-4">
                         {numbers}
                     </div>
                 </div>
-                <div className="flex justify-center items-center mt-10"><button onClick={handleClick } className="bg-[#5035FF] text-white outline-none py-2 px-10 text-xl font-bold rounded-md shadow-2xl"> Roll </button></div>
+                <div className="flex justify-center items-center mt-10"><button onClick={handleClick } className="bg-[#5035FF] text-white outline-none py-2 px-10 text-xl font-bold rounded-md shadow-2xl"> {completed? "New Game" : "Roll"} </button></div>
             </div>
         </div>
     
