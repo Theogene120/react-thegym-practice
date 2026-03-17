@@ -34,7 +34,11 @@ function Main(){
     let numbers = nums.map(numObj => <Die onClick={() => hold(numObj.id)} key={numObj.id} value={numObj.value} isHeld={numObj.isHeld} />)
 
     function handleClick (){
-        setNums(prev => prev.map(die => die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}))
+        if(!completed){
+            setNums(prev => prev.map(die => die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}))
+        }else{
+            setNums(randomNumbers())
+        }
     }
 
 
