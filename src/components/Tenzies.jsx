@@ -1,4 +1,5 @@
 import React from "react"
+import Confetti from 'react-confetti';
 
 import Die from "./Die"
 
@@ -40,6 +41,7 @@ function Main(){
 
     return (
         <div className="bg-[#0B2434] border rounded-lg h-[600px]">
+            {completed && <Confetti />}
             <div className="bg-white  h-[85%] rounded-md m-10">
                 {!completed ? (<div>
                     <p className="text-center text-4xl pt-10 font-bold">Tenzies</p>
