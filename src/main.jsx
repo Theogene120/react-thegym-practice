@@ -11,10 +11,11 @@ import Tenzies from "./components/Tenzies";
 import Fetch from '/src/components/Fetch.jsx'
 //import WindowTracker from "./components/WindowTruck";
 import "./index.css";
+import MentalModel from "./MentalModel";
 
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Tenzies />
+    <MentalModel />
   </StrictMode>,
 );
