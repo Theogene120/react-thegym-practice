@@ -14,7 +14,7 @@ function MentalModel(){
         )}
     ]
 
-    const [show, setShow] = React.useState(false)
+    const [show, setShow] = React.useState(false) // This is the state for the eye
 
     function handleShow(){
         setShow(prev => !prev)
