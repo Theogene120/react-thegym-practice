@@ -12,10 +12,24 @@ import Fetch from '/src/components/Fetch.jsx'
 //import WindowTracker from "./components/WindowTruck";
 import "./index.css";
 import MentalModel from "./MentalModel";
+import Login from "./MentalModel/QuestionOne";
+import Search from "./MentalModel/QuestionTwo";
+import Posts from "./MentalModel/QuestionThree";
+// import Counter from "./MentalModel/QuestionFour";
+import GetData from "./MentalModel/QuestionFive";
+import NameTransferLists from "./MentalModel/QuestionSeven";
+import Counter from "./ReactGate/Question1";
+import ToggleButtons from "./ReactGate/Question3";
+import NameTransfer from "./ReactGate/Question4";
+import FetchData from "./ReactGate/FetchData";
+import CardList from "./ReactGate/Question5";
+
+
+import ProductList from "./UKPractice/FirstQuestion";
 
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MentalModel />
+    <ProductList />
   </StrictMode>,
 );
