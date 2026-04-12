@@ -19,7 +19,7 @@ function NameTransfer() {
 
   return (
     <div>
-      <h3>Original Names</h3>
+      <h3>Original Names</h3> 
       
       <ul  style={{backgroundColor:"red"}}>
         {names.map((name, index) => (
