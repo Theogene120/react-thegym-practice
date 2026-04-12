@@ -30,6 +30,6 @@ import ProductList from "./UKPractice/FirstQuestion";
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CardList />
+    <ProductList />
   </StrictMode>,
 );
