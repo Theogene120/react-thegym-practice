@@ -15,10 +15,10 @@ import MentalModel from "./MentalModel";
 import Login from "./MentalModel/QuestionOne";
 import Search from "./MentalModel/QuestionTwo";
 import Posts from "./MentalModel/QuestionThree";
-// import Counter from "./MentalModel/QuestionFour";
+import Counter from "./MentalModel/QuestionFour";
 import GetData from "./MentalModel/QuestionFive";
 import NameTransferLists from "./MentalModel/QuestionSeven";
-import Counter from "./ReactGate/Question1";
+// import Counter from "./ReactGate/Question1";
 import ToggleButtons from "./ReactGate/Question3";
 import NameTransfer from "./ReactGate/Question4";
 import FetchData from "./ReactGate/FetchData";
@@ -30,6 +30,6 @@ import ProductList from "./UKPractice/FirstQuestion";
 import App from './components/Suspense'
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Posts />
+    <Counter />
   </StrictMode>,
 );
