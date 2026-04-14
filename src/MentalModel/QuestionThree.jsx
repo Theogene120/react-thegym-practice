@@ -6,6 +6,8 @@ function Posts() {
     const [refresh, setRefresh] = useState(0)
 
     useEffect(() => {
+
+        let isMounted = true
         // start loading
         setLoading(true)
 
@@ -15,6 +17,10 @@ function Posts() {
                 setPosts(data)
                 setLoading(false) // done loading
             })
+        
+        return () => {     // Function for cleaning up and avoid memory leaks
+            isMounted = false
+        }
     }, [refresh]) // ← re-runs every time refresh changes
 
     return (
